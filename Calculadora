@@ -24,7 +24,7 @@ def op(a, num1, num2):
     elif a == 4:
         div = num1 % num2
         return div
-def opD(primer, e, num1, num2):
+def opD(primer, e, num1, num2,string):
     if(e == 1):
         s = "+"
     if(e == 2):
@@ -33,7 +33,6 @@ def opD(primer, e, num1, num2):
         s = "*"
     if(e == 4):
         s = "/"
-    string = f"{num1} {s} {num2}"
     if primer == True:
         string = f"{num1} {s} {num2}"
         return string
@@ -56,7 +55,8 @@ while b:
     z += 1
     print("nº", z)
     primer = True
-    print(opD(primer,a,num1,num2), " = ",result)
+    string = opD(primer,a,num1,num2,string)
+    print(string," = ",result)
     while g:
         d = input("¿Continuamos la operación?(Si o No): ")
         if d == "Si":
@@ -67,26 +67,30 @@ while b:
                 z += 1
                 print("nº", z)
                 primer = False
+                string = opD(primer,e,num1,num2,string)
                 result = result + f
-                print(opD(primer,e,num1,num2), " = ", result)
+                print(string, " = ", result)
             elif e == 2:
                 z += 1
                 print("nº", z)
                 primer = False
+                string = opD(primer,e,num1,num2,string)
                 result = result - f
-                print(opD(primer,e,num1,num2), " = ", result)
+                print(string, " = ", result)
             elif e == 3:
                 z += 1
                 print("nº", z)
                 primer = False
+                string = opD(primer,e,num1,num2,string)
                 result = result * f
-                print(opD(primer,e,num1,num2), " = ", result)
+                print(string, " = ", result)
             elif e == 4:
                 z += 1
                 print("nº", z)
                 primer = False
+                string = opD(primer,e,num1,num2,string)
                 result = result % f
-                print(opD(primer,e,num1,num2), " = ", result)
+                print(string, " = ", result)
         if(d == "No"):
             g = False
             if c == "Si":
