@@ -4,6 +4,7 @@ c = ""
 d = ""
 e = 0
 f = 0
+s = ""
 g = True
 z = 0
 string = ""
@@ -24,38 +25,23 @@ def op(a, num1, num2):
         div = num1 % num2
         return div
 def opD(primer, e, num1, num2):
-    if e == 1:
-        string = f"({num1} + {num2})"
-        if primer == True:
-            string = f"({num1} + {num2})"
-            return string
-        else:
-            string = f"({string} + {f})"
-            return string
-    elif e == 2:
-        string = f"({num1} - {num2})"
-        if primer == True:
-            string = f"({num1} - {num2})"
-            return string
-        else:
-            string = f"({string} - {f})"
-            return string
-    elif e == 3:
-        string = f"({num1} * {num2})"
-        if primer == True:
-            string = f"({num1} * {num2})"
-            return string
-        else:
-            string = f"({string} * {f})"
-            return string
-    elif e == 4:
-        string = f"({num1} / {num2})"
-        if primer == True:
-            string = f"({num1} / {num2})"
-            return string
-        else:
-            string2 = f"({string} / {f})"
-            return string2
+    if(e == 1):
+        s = "+"
+    if(e == 2):
+        s = "-"
+    if(e == 3):
+        s = "*"
+    if(e == 4):
+        s = "/"
+    string = f"{num1} {s} {num2}"
+    if primer == True:
+        string = f"{num1} {s} {num2}"
+        return string
+    else:
+        string = f"({string}) {s} {f}"
+        return string
+def deshacer():
+    a
 while b:
     print("Elige una opción de calculo")
     print("1-Suma")
@@ -66,10 +52,11 @@ while b:
     print("ahora escribe dos números")
     num1 =int(input("primer número: "))
     num2 =int(input("segundo número: "))
+    result = (op(a,num1,num2))
     z += 1
     print("nº", z)
     primer = True
-    print(opD(primer,a,num1,num2), " = ", op(a,num1,num2))
+    print(opD(primer,a,num1,num2), " = ",result)
     while g:
         d = input("¿Continuamos la operación?(Si o No): ")
         if d == "Si":
@@ -80,30 +67,28 @@ while b:
                 z += 1
                 print("nº", z)
                 primer = False
-                newResult = (op(e,num1,num2) + f)
-                print(opD(primer,e,num1,num2), " = ", newResult)
+                result = result + f
+                print(opD(primer,e,num1,num2), " = ", result)
             elif e == 2:
                 z += 1
                 print("nº", z)
                 primer = False
-                newResult = (op(e,num1,num2) - f)
-                print(opD(primer,e,num1,num2), " = ", newResult)
+                result = result - f
+                print(opD(primer,e,num1,num2), " = ", result)
             elif e == 3:
                 z += 1
                 print("nº", z)
                 primer = False
-                newResult = (op(e,num1,num2) * f)
-                print(opD(primer,e,num1,num2), " = ", newResult)
+                result = result * f
+                print(opD(primer,e,num1,num2), " = ", result)
             elif e == 4:
                 z += 1
                 print("nº", z)
                 primer = False
-                newResult = (op(e,num1,num2) % f)
-                print(opD(primer,e,num1,num2), " = ", newResult)
-        d = input("¿Continuamos la operación?(Si o No): ")
+                result = result % f
+                print(opD(primer,e,num1,num2), " = ", result)
         if(d == "No"):
             g = False
-            c = input("¿Desea continuar calculando? (Si o No): ")
             if c == "Si":
                 print("De acuerdo")
             else:
